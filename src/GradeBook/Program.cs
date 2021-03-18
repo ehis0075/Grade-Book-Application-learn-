@@ -24,12 +24,19 @@ namespace GradeBook
                 var grade = double.Parse(input);
                 book.AddGrade(grade);
 
-            } catch(Exception e)
+            } catch(ArgumentException e)
             {
                 Console.WriteLine(e.Message);
             }
-                
-            }
+            catch(FormatException ex)
+            {
+                Console.WriteLine(ex.Message);
+            }  
+            finally
+            {
+                Console.WriteLine("done.......");
+            }   
+        }
             
             var stats = book.GetStatistics();         
             
