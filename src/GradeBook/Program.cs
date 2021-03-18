@@ -18,8 +18,17 @@ namespace GradeBook
             {
                 break;
             }
+
+            try
+            {
                 var grade = double.Parse(input);
                 book.AddGrade(grade);
+
+            } catch(Exception e)
+            {
+                Console.WriteLine(e.Message);
+            }
+                
             }
             
             var stats = book.GetStatistics();         
