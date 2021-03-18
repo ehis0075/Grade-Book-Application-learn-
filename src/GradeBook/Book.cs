@@ -35,7 +35,7 @@ namespace GradeBook
             {
                 if(grades[counter] == 42.111)
                 {
-                    break;
+                    continue;
                 }
 
                 result.Low = Math.Min(grades[counter], result.Low);
