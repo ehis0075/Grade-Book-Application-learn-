@@ -15,13 +15,28 @@ namespace GradeBook
         // A B C char takes a single character: value type, struct
         public void AddLetterGrade(char letter)
         {
-            if(letter == 'A')
+            switch(letter)
             {
-                AddGrade(90);
-            }
-            else if(letter == 'B')
-            {
-                AddGrade(80);    
+                case 'A':
+                    AddGrade(90);
+                    break;
+
+                case 'B':
+                    AddGrade(80);
+                    break;
+
+                case 'C':
+                    AddGrade(70);
+                    break;
+
+                case 'D':
+                    AddGrade(70);
+                    break;
+
+                default:
+                    AddGrade(0);
+                    break;    
+                            
             }
         }
 
