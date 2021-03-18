@@ -33,6 +33,11 @@ namespace GradeBook
             
             for (var counter = 0; counter < grades.Count; counter++)
             {
+                if(grades[counter] == 42.111)
+                {
+                    break;
+                }
+
                 result.Low = Math.Min(grades[counter], result.Low);
                 result.High = Math.Max(grades[counter], result.High);
                 result.Average += grades[counter];
