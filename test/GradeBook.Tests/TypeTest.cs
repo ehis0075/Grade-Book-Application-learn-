@@ -6,7 +6,7 @@ namespace GradeBook.Tests
 {
     public class BookTest1
     {
-
+        [Fact]    
         public void StringsBehaveLikeValueTypes()
         {
             string name = "alex";
@@ -54,7 +54,7 @@ namespace GradeBook.Tests
             var book1 = GetBook("Book 1");
             GetBookSetName( book1, "New Name");
 
-            Assert.Equal("New Name", book1.Name);
+            Assert.Equal("Book 1", book1.Name);
         }
 
             private void GetBookSetName(ref Book book, string name)
