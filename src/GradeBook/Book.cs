@@ -11,6 +11,20 @@ namespace GradeBook
             Name = name;
         }
 
+
+        // A B C char takes a single character: value type, struct
+        public void AddLetterGrade(char letter)
+        {
+            if(letter == 'A')
+            {
+                AddGrade(90);
+            }
+            else if(letter == 'B')
+            {
+                AddGrade(80);    
+            }
+        }
+
         public void AddGrade(double grade)
         {
             if(grade <= 100 && grade >= 0)
@@ -33,18 +47,12 @@ namespace GradeBook
             
             for (var counter = 0; counter < grades.Count; counter++)
             {
-                if(grades[counter] == 42.111)
-                {
-                    goto done;
-                }
-
                 result.Low = Math.Min(grades[counter], result.Low);
                 result.High = Math.Max(grades[counter], result.High);
                 result.Average += grades[counter];
 
             }; 
             result.Average /= grades.Count;
-            done:
             return result;
         }
 
