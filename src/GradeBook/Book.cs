@@ -7,13 +7,16 @@ namespace GradeBook
     {
         public Book(string name)
         {
+            
             grades = new List<double>();
             Name = name;
         }
 
 
+
+
         // A B C char takes a single character: value type, struct
-        public void AddLetterGrade(char letter)
+        public void AddGrade(char letter)
         {
             switch(letter)
             {
@@ -26,10 +29,6 @@ namespace GradeBook
                     break;
 
                 case 'C':
-                    AddGrade(70);
-                    break;
-
-                case 'D':
                     AddGrade(70);
                     break;
 
@@ -48,8 +47,9 @@ namespace GradeBook
             }
             else 
             {
-                Console.WriteLine("Invalid value");
+                throw new ArgumentException($"invalid (nameof(grade))");
             }
+            
         }
 
         public Statistics GetStatistics()
@@ -68,11 +68,44 @@ namespace GradeBook
 
             }; 
             result.Average /= grades.Count;
+
+            switch(result.Average)
+            {
+                case var d when d >= 90.0:
+                    result.letter = 'A';
+                    break;
+
+                case var d when d >= 80.0:
+                    result.letter = 'B';
+                    break;
+
+                case var d when d >= 70.0:
+                    result.letter = 'C';
+                    break;
+
+                case var d when d >= 60.0:
+                    result.letter = 'D';
+                    break; 
+
+                default:
+                    result.letter = 'F';
+                    break;               
+            }    
             return result;
         }
 
         private List<double> grades;
-        public string Name;
+
+        public string Name 
+        {
+            get; 
+            private  set;
+        
+        }
+
+        readonly string category = "scince";
+
+        
     }
 }
 
