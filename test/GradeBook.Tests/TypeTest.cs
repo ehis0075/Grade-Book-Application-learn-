@@ -4,8 +4,28 @@ using Xunit;
 namespace GradeBook.Tests
 
 {
+
+    public delegate string WriteLogDelegate(string logMessage);
+
     public class BookTest1
     {
+
+        [Fact]
+        public void test7()
+        {
+            WriteLogDelegate log;
+
+            log = new WriteLogDelegate(ReturnMessage);
+
+            var result = log("hello");
+            Assert.Equal("hello", result);
+        }
+
+        string ReturnMessage(string message)
+        {
+            return message;
+        }
+
         [Fact]    
         public void StringsBehaveLikeValueTypes()
         {

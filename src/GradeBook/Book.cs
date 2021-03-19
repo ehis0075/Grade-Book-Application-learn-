@@ -7,7 +7,7 @@ namespace GradeBook
     {
         public Book(string name)
         {
-            
+
             grades = new List<double>();
             Name = name;
         }
@@ -99,11 +99,11 @@ namespace GradeBook
         public string Name 
         {
             get; 
-            private  set;
+            public set;
         
         }
 
-        readonly string category = "scince";
+       public const string CATEGORY = "scince";
 
         
     }
